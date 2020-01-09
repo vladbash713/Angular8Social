@@ -1,0 +1,21 @@
+@import '~@angular/material/theming';
+@import './soctz-colors.scss';
+
+
+@include mat-core();
+
+$soctz-app-primary: mat-palette($soctz-primary, 500, 800, 200);
+$soctz-app-accent:  mat-palette($soctz-secondary, 500, 300, 100);
+
+// The warn palette is optional (defaults to red).
+$soctz-app-warn:    mat-palette($mat-red);
+
+
+$soctz-app-background: mat-palette($soctz-primary, 100, 200, 300);
+$soctz-app-foreground: mat-palette($soctz-secondary,100, 200, 300);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$soctz-app-theme: mat-light-theme($soctz-app-primary, $soctz-app-accent, $soctz-app-warn);
+
+
+@include angular-material-theme($soctz-app-theme);

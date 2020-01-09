@@ -1,0 +1,32 @@
+<div style="color: black;background: linear-gradient(to right,#c6f5ce,#c6f5ce)" fxLayout="row" fxLayoutAlign="start start" >
+  <img style="margin: 0px; padding: 0px;border: 0px;" alt="homepage" src="assets/img/logo.png" width="156" height="56">
+</div>
+<section>
+<div class="toast-container" toastContainer ></div>
+<form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <mat-form-field >
+      <input type="email" matInput placeholder="Your email" ngModel name="email" email required #emailInput="ngModel">
+      <mat-error *ngIf="emailInput.hasError('required')">E-mail must not be empty.</mat-error>
+      <mat-error *ngIf="!emailInput.hasError('required')">E-Mail is invalid.</mat-error>
+    </mat-form-field>
+    <mat-form-field  hintLabel="Should be at least 8 characters long.">
+      <input type="password"  matInput placeholder="Your password" ngModel name="password" required minlength="8" maxlength="30"
+        #pwInput="ngModel" >
+      <mat-hint align="end">{{ pwInput.value?.length }} / 8</mat-hint>
+      <mat-error *ngIf="pwInput.hasError('required')">Password is required.</mat-error>
+      <mat-error *ngIf="pwInput.hasError('minlength')">Password has to be at least 8 characters long.</mat-error>
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+  <button *ngIf="!isLoading" type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  </div>
+</form>
+<div class="hr-sect"> OR </div>
+ <div flex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" >
+  <button *ngIf="!isLoading" mat-raised-button color="primary" class="btn_facebook" (click)="this.Facebookclick()"><i class="fa fa-facebook"></i> Facebook </button>
+  <button *ngIf="!isLoading" mat-raised-button color="primary" class="btn_google" (click)="this.googleclick()"><i class="fa fa-google"></i>
+    Google </button>
+  <button *ngIf="!isLoading" mat-raised-button color="primary" class="btn_linkedin" (click)="this.Twitterclick()"><i class="fa fa-linkedin"></i> Linkedin </button>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+</div>
+</section>

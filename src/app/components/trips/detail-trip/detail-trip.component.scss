@@ -1,0 +1,79 @@
+.trip-content {
+  padding: 30px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  .trip-header-info{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    font-size: 1.28rem;
+    font-weight: 700;
+  }
+  .trip-info {
+    font-size: 18px;
+    line-height: 1.6em;
+    font-weight: 400;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: justify;
+    text-transform: capitalize;
+  }
+  .trip-img {
+    margin: 1rem 0;
+    width: 100%;
+  }
+  .comments {
+    .comment {
+      padding: 1rem;
+      margin: 0.5rem 0;
+      background: white;
+      border-radius: 0.25rem;
+      box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+      transition: box-shadow .1s ease,transform .1s ease,-webkit-transform .1s ease;
+
+      .comment-header {
+        display: flex;
+        justify-content: space-between;
+        .comment-title {
+          font-weight: 700;
+          font-size: 1.28571429em;
+          line-height: 1.28571429em;
+          .comment-meta {
+            font-size: 1rem;
+            color: rgba(0,0,0,.4);
+          }
+        }
+        .comment-user-img {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+        }
+        .comment-summary {
+          margin-top: 0.5rem;
+          clear: both;
+          color: rgba(0,0,0,.68);
+        }
+        .comment-content {
+          color: black;
+        }
+      }
+    }
+  }
+  .auth {
+    width: 100%;
+    text-align: center;
+    .auth-photo {
+      width: 7rem;
+      border: 3px solid #e78b90;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .auth-name {
+      font-size: 1.2rem;
+      font-weight: 400;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}

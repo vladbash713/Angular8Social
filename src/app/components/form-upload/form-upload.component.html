@@ -1,0 +1,53 @@
+<div class="container p-5 ">
+  <div class="row w-100">
+    <div class="col-md-6 d-flex align-items-center flex-wrap">
+      <input type="file" style="display: none" #fileInput accept="image/*" (change)="onChangeFileInput()" />
+      <button mat-raised-button color="primary" class="file-select-button" (click)="onClickFileInputButton()">
+        <mat-icon>attach_file</mat-icon>
+        File Browser
+      </button>
+      <div class="ml-3">
+        <div class="file-name" *ngIf="!file; else fileName">No selected file</div>
+        <ng-template #fileName>
+          <div class="file-name">{{ file?.name }}</div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="col-md-6 d-flex align-items-center">
+      <button mat-raised-button color="success" class="file-select-button" (click)="upload()" [disabled]="!file">
+        <mat-icon>cloud_upload</mat-icon>
+        File Upload
+      </button>
+      <div class="ml-3">Uploading... {{percentage}}%</div>
+    </div>
+  </div>
+  <hr>
+  <div class="w-100 mt-3">
+    <h1>Files in Firebase Storage</h1>
+    <table mat-table [dataSource]="fileUploads" class="mat-elevation-z8 w-100">
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Image </th>
+        <td mat-cell *matCellDef="let element"> 
+          <img class="img-thumbnail" [src]="element.payload.doc.data().url" alt="" width="150" height="100">
+        </td>
+      </ng-container> 
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.payload.doc.data().name}} </td>
+      </ng-container>
+     
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button mat-icon-button (click)="deleteFile(element)">
+            <mat-icon>delete</mat-icon>
+          </button>  
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

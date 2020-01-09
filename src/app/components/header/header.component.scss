@@ -1,0 +1,65 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+  height: 100%;
+  border: 1px;
+}
+
+mat-sidenav {
+  width: 250px;
+  border: 1px;
+}
+
+a{
+  text-decoration: none;
+  color: #9cc34c;
+  &:hover {
+    cursor: pointer;
+    color: lightgray !important;
+  }
+}
+li {
+  margin: 0 15px !important;
+}
+.header-nav-item {
+  text-decoration: none;
+  color: #9cc34c !important;
+  &:hover {
+    cursor: pointer;
+    color: lightgray !important;
+  }
+}
+
+a:hover a:active {
+  color: lightgray !important;
+}
+
+.navigation-items {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Header menu*/
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+.iconBtn{
+  font-size: 25px;
+  vertical-align: middle !important;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.router-link-active {
+  color: green;
+  border-bottom: solid 2px green;
+}
+.header-navbar {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}

@@ -1,0 +1,60 @@
+<section class="hero_single version_2"
+  [ngStyle]="{'background': 'url(' + item.avatar + ') center center no-repeat', 'background-size': 'cover'}">
+  <div class="wrapper">
+    <div class="container">
+      <div>
+        <h3>{{item.title}}</h3>
+        <p>{{item.summary}}</p>
+      </div>
+      <hr class="bg_color_1">
+      <div class="d-flex align-items-center justify-content-center">
+          {{item.reviews}} Views / <button mat-icon-button color="accent" (click)="tripService.addRecommend(item, item.id)">
+            <mat-icon>thumb_up</mat-icon></button>{{item.recommend}} Likes
+      </div>
+    </div>
+  </div>
+</section>
+<div class="trip-content">
+  <div class="row">
+    <div class="col-xl-9 col-lg-9 col-md-8">
+      <div class="trip-header-info">
+        <span>{{item.title}}</span>
+        <span>{{getLocaleDate(item.created)}}</span>
+      </div>
+      <div class="trip-info">
+        {{item.info}}
+      </div>
+      <img src="{{item.avatar}}" class="trip-img">
+      <hr>
+      <div class="comments">
+        <div class="comment" *ngFor="let comment of comments">
+          <div class="comment-header">
+            <div class="comment-title">
+              {{comment.payload.doc.data().name}}
+              <div class="comment-meta">
+                {{getLocaleDate(comment.payload.doc.data().created)}}
+              </div>
+            </div>
+            <img src="{{comment.payload.doc.data().photoURL}}" class="comment-user-img">
+          </div>
+          <div class="comment-summary">
+            {{comment.payload.doc.data().summary}}
+          </div>
+          <hr>
+          <div class="comment-content">
+            {{comment.payload.doc.data().content}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-4 col-md-6">
+      <div class="auth content-card">
+        <img src="{{item.photoURL}}" class="auth-photo">
+        <div class="auth-name">{{item.displayName}}</div>
+        <button mat-raised-button color="accent" [routerLink]="['/trips/comment/'+item.id]">Follow</button>
+      </div>
+    </div>
+  </div>
+</div>
+  

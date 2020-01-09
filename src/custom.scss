@@ -1,0 +1,25 @@
+.custom-divider {
+  width: 40%;
+  margin: 40px auto;
+  margin-top: 70px;
+  position: relative;
+  border-top: 1px solid #e78b90!important;
+  .star {
+    position: absolute;
+    left: 40%;
+    transform: translateY(-50%);
+    color: #e78b90;
+    width: 20%;
+    text-align: center;
+    background: #fafafa;
+  }
+}
+.content-card {
+  width: 100%;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(32,20,4,.05);
+  box-shadow: 0 3px 6px 0 rgba(32,20,4,.05);
+  background-color: #fff;
+  padding: 15px;
+  margin:5px;
+}

@@ -1,0 +1,33 @@
+<div class="list-group users-list">
+
+  <div class="input-group mb-5">
+    <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}"
+      placeholder="Search any ..." (keyup)="searchByName()">
+    <div class="input-group-append">
+      <span class="input-group-text">
+        <mat-icon>search</mat-icon>
+      </span>
+    </div>
+  </div>
+  <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="row">
+      <div class="col col-md-2 image-col">
+        <img class="image img-thumbnail" [src]="item.payload.doc.data().avatar">
+      </div>
+      <div class="col col-md-8 text-col">
+        <h5 class="mb-1">{{item.payload.doc.data().title}}</h5>
+        <small>Auth: {{item.payload.doc.data().displayName}}</small><br>
+        <small>Created: {{getLocaleDate(item.payload.doc.data().created)}}</small><br>
+        <small>Summary: {{item.payload.doc.data().summary}}</small>
+      </div>
+      <div class="col col-md-2 actions-col">
+        <button mat-icon-button (click)="editDetails(item)">
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+        <button mat-icon-button (click)="remove(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

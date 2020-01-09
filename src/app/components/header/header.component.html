@@ -1,0 +1,65 @@
+<mat-toolbar style="padding: 0 30px" class="header-navbar">
+  <div>
+    <a [routerLink]="['/homepage']"><img src="assets/img/logo.png" width="156" height="56" data-retina="true"
+        alt=""></a>
+  </div>
+  <span class="spacer"></span>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs box-sizing="border-box">
+    <div *ngIf="authService.isLoggedIn; then authenticated else guest">
+    </div>
+    <ng-template #guest>
+      <div>
+        <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+          <li> <a [routerLink]="['/homepage']" routerLinkActive="router-link-active">Home</a></li>
+          <li> <a [routerLink]="['/tour-list']" routerLinkActive="router-link-active">Tours</a></li>
+          <li> <a [routerLink]="['/hotel-list']" routerLinkActive="router-link-active">Hotels</a></li>
+          <li> <a [routerLink]="['/restaurant-list']" routerLinkActive="router-link-active">Restaurants</a></li>
+          <li> <a (click)="this.openDialogsignup()" skiplocationchange class="header-nav-item">Signup</a></li>
+          <li>
+            <a (click)="this.openDialoglogin()" skiplocationchange class="header-nav-item">Login</a>
+          </li>
+        </ul>
+      </div>
+    </ng-template>
+    <ng-template #authenticated>
+
+      <ul fxLayout fxLayoutGap="10px" class="navigation-items" style="align-items: center">
+        <li> <a [routerLink]="['/homepage']" routerLinkActive="router-link-active">Home</a></li>
+        <li> <a [routerLink]="['/tour-list']" routerLinkActive="router-link-active">Tours</a></li>
+        <li> <a [routerLink]="['/hotel-list']" routerLinkActive="router-link-active">Hotels</a></li>
+        <li> <a [routerLink]="['/restaurant-list']" routerLinkActive="router-link-active">Restaurants</a></li>
+        <li>
+          <button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5">
+            <img src="{{this.getUserPhoto()}}" alt={{this.getUser()}}
+              height="40" width="40" class="profile-pic">
+          </button>
+          <mat-menu #profile="matMenu" class="mymegamenu">
+            
+            <button mat-menu-item [routerLink]="['/tours']">
+              <mat-icon>list_alt</mat-icon> My Posts
+            </button>
+            <button mat-menu-item [routerLink]="['/tour_new']">
+              <mat-icon>add_box</mat-icon> New Post
+            </button>
+            <button mat-menu-item [routerLink]="['/files']">
+              <mat-icon>attach_file</mat-icon> File Manage
+            </button>
+            <hr>
+            <button mat-menu-item (click)="triggerBlog()">
+              <mat-icon>settings</mat-icon> Settings
+            </button>
+            <button mat-menu-item (click)="triggerUserProfile()">
+              <mat-icon>account_box</mat-icon> Profile
+            </button>
+            <button mat-menu-item (click)=this.triggertakeacourse()>
+              <mat-icon>notifications_off</mat-icon> Take a course
+            </button>
+            <button mat-menu-item (click)=this.Userlogout()>
+              <mat-icon>exit_to_app</mat-icon> {{this.UsertobeloggedOut()}}
+            </button>
+          </mat-menu>
+        </li>
+      </ul>
+    </ng-template>
+  </div>
+</mat-toolbar>

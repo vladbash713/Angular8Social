@@ -1,0 +1,81 @@
+mat-form-field {
+  margin: 10px;
+  padding: 5px;
+  align-items: center center;
+  width: 350px;
+}
+
+.mat-dialog-container {
+  padding:0px!important;
+}
+
+
+.hr-sect {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.35);
+  margin: 8px 0px;
+}
+
+.hr-sect::before,
+.hr-sect::after {
+  content: "";
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.35);
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 8px;
+}
+
+/*
+
+.tds { width:15%; }
+
+.logintd1 tr td{
+  width: 15%;
+  /* vertical-align: middle
+}
+
+#logo-table td img, #logo-table td
+{
+    vertical-align: middle;
+    border: 0px;
+}
+
+.logintd2 tr td td{
+    width: 85%;
+    }
+ */
+.btn_facebook {
+  background-color: #3B5998;
+  border-color: #3B5998;
+  height: 35px;
+  text-align: center;
+  align-self: auto;
+  margin: 10px;
+  width: auto;
+}
+
+.btn_google {
+  background-color: #C63D2D;
+  border-color: #C63D2D;
+  height: 35px;
+  text-align: center;
+  align-self: auto;
+  margin: 10px;
+  width: auto;
+}
+
+.btn_linkedin {
+  background-color: #487584;
+  border-color: #487584;
+  height: 35px;
+  text-align: center;
+  align-self: auto;
+  margin: 10px;
+  width: auto;
+}
+
+/* */

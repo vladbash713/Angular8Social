@@ -1,0 +1,114 @@
+<section class="hero_single version_2">
+	<div class="wrapper">
+		<div class="container">
+			<h3>Book unique experiences</h3>
+			<p>Expolore top rated tours, hotels and restaurants around the world</p>
+		</div>
+	</div>
+</section>
+<!-- /hero_single -->
+
+<div class="container-fluid margin_80_0">
+	<div class="main_title_2">
+		<span><em></em></span>
+		<h2>Our Popular Tours</h2>
+		<p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+	</div>
+	<!-- <div id="reccomended" class="owl-carousel owl-theme"> -->
+	<div class="row">
+		<div class="col-xl-3 col-lg-6 col-md-6 item" *ngFor="let tour of toursList;">
+			<div class="box_grid">
+				<figure>
+					<div (click)="tripService.addRecommend(tour.payload.doc.data(), tour.payload.doc.id)"
+						class="recommend">
+						<mat-icon>thumb_up</mat-icon>
+					</div>
+					<a [routerLink]="['/tours/detail/'+tour.payload.doc.id]">
+						<img [src]="tour.payload.doc.data().avatar" class="img-fluid" alt="" width="800" height="533">
+						<div class="read_more"><span>Read more</span>
+						</div>
+					</a>
+					<small>{{tour.payload.doc.data().name}}</small>
+				</figure>
+				<div class="wrapper">
+					<h3><a [routerLink]="['/tours/detail/'+tour.payload.doc.id]">{{tour.payload.doc.data().title}}</a>
+					</h3>
+					<p class="summary">{{tour.payload.doc.data().summary}}</p>
+					<div class="add-comment">
+						<span class="price">Recommends: <strong>{{tour.payload.doc.data().recommend}}</strong></span>
+						<button mat-raised-button color="accent"
+							[routerLink]="['/tours/comment/'+tour.payload.doc.id]">Follow</button>
+					</div>
+				</div>
+				<ul class="d-flex justify-content-between">
+					<li class="d-flex align-items-center">
+						<mat-icon>access_time</mat-icon>{{getLocaleDate(tour.payload.doc.data().created)}}
+					</li>
+					<li>
+						<div class="score"><span>Superb<em>{{tour.payload.doc.data().reviews}}
+									Reviews</em></span><strong>{{tour.payload.doc.data().feedback}}</strong></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- </div> -->
+	<!-- /carousel -->
+	<div class="container">
+		<p class="btn_home_align"><a [routerLink]="['/tour-list']" class="btn_1 rounded">View all Tours</a></p>
+	</div>
+	<!-- /container -->
+	<hr class="large">
+</div>
+<!-- /container -->
+
+<div class="container-fluid margin_30_95 pl-lg-5 pr-lg-5">
+	<section class="add_bottom_45">
+		<div class="main_title_3">
+			<span><em></em></span>
+			<h2>Popular Hotels and Accommodations</h2>
+			<p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+		</div>
+		<div class="row">
+			<div class="col-xl-3 col-lg-6 col-md-6" *ngFor="let hotel of hotelList">
+				<a [routerLink]="['/tours/detail/'+hotel.payload.doc.id]" class="grid_item">
+					<figure>
+						<div class="score"><strong>${{hotel.payload.doc.data().price}}</strong></div>
+						<img src="{{hotel.payload.doc.data().avatar}}" class="img-fluid" alt="">
+						<div class="info">
+							<div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i
+									class="icon_star"></i><i class="icon_star"></i></div>
+							<h3>{{hotel.payload.doc.data().title}}</h3>
+						</div>
+					</figure>
+				</a>
+			</div>
+		</div>
+		<a [routerLink]="['/hotel-list']" ><strong>View all<i class="arrow_carrot-right"></i></strong></a>
+	</section>
+	<!-- /section -->
+
+	<section>
+		<div class="main_title_3">
+			<span><em></em></span>
+			<h2>Popular Restaurants</h2>
+			<p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+		</div>
+		<div class="row">
+			<div class="col-xl-3 col-lg-6 col-md-6" *ngFor="let restaurant of restaurantList">
+				<a [routerLink]="['/tours/detail/'+restaurant.payload.doc.id]" class="grid_item">
+					<figure>
+						<div class="score"><strong>${{restaurant.payload.doc.data().price}}</strong></div>
+						<img src="{{restaurant.payload.doc.data().avatar}}" class="img-fluid" alt="">
+						<div class="info">
+							<div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i
+									class="icon_star"></i><i class="icon_star"></i></div>
+							<h3>{{restaurant.payload.doc.data().title}}</h3>
+						</div>
+					</figure>
+				</a>
+			</div>
+		</div>
+		<a  [routerLink]="['/restaurant-list']" ><strong>View all<i class="arrow_carrot-right"></i></strong></a>
+	</section>
+</div>
